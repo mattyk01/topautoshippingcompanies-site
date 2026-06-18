@@ -91,15 +91,25 @@ nav.primary { display: flex; align-items: center; gap: 8px; }
 }
 .navitem.open .chev { transform: rotate(-135deg) translate(-1px,-1px); opacity: 1; }
 .dropdown {
-  position: absolute; top: calc(100% + 6px); left: 0; min-width: 260px;
+  position: absolute; top: 100%; left: 0; min-width: 260px;
   background: var(--bg);
   border: 1px solid var(--rule-2);
   border-radius: 10px;
   box-shadow: 0 14px 40px -12px rgba(20,24,28,0.22);
   padding: 7px;
+  margin-top: 6px;
   opacity: 0; pointer-events: none; transform: translateY(-5px);
   transition: opacity .15s ease, transform .15s ease;
   z-index: 30;
+}
+.dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: transparent;
 }
 .navitem.open .dropdown { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .dropdown a {
@@ -370,6 +380,18 @@ h2.section-title::after {
   transition: border-color .15s ease, background .15s ease, color .15s ease;
 }
 .quote-link:hover { border-color: var(--accent); background: var(--accent); color: var(--on-accent); }
+.quote-link.primary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+  padding: 13px 26px;
+  font-size: 16px;
+}
+.quote-link.primary:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: var(--on-accent);
+}
 
 /* ============ How We Rank (criteria as ranked items) ============ */
 .criteria {
